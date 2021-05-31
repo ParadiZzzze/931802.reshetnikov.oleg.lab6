@@ -1,0 +1,28 @@
+﻿@model WebApplication8.Models.File
+
+@{
+    ViewBag.Title = "File 1";
+}
+
+<ol class="breadcrumb breadcrumb-top">
+    <li><a href="#">Root</a></li>
+    <li><a href="#">Folder 1</a></li>
+    <li class="active">@Model.Name</li>
+</ol>
+
+<h2>@Model.Name <small>@Model.Extension  @Model.Size bytes</small></h2>
+
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="btn-toolbar">
+    <div class="btn-group">
+        <a class="btn btn-default" asp-action="Download" asp-route-id="@Model.Id">Download</a>
+    </div>
+    <div class="btn-group">
+        <a class="btn btn-default" asp-route-id="@Model.Id" asp-action="Edit">Edit</a>
+        <a class="btn btn-default" asp-route-id="@Model.Id" asp-action="Delete">Delete</a>
+    </div>
+    <div class="btn-group">
+        <a class="btn btn-default" asp-action="Details" asp-controller="Folders" asp-route-id="@ViewBag.Folder">Back</a>
+    </div>
+</div>

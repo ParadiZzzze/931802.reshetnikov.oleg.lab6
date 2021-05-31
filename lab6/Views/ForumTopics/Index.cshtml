@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebApplication8.Models.ForumTopic>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>@ViewBag.Name</h2>
+<p>@ViewBag.Description</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create" asp-controller="ForumTopics" asp-route-forumId="@ViewBag.Forum.Id">Create new topic</a>
+    </p>
+}
+
+    <div class="panel panel-default">
+        <table class="table table-striped">
+            @foreach (var topic in Model)
+            {
+                <tbody>
+                    <tr>
+                        <td>
+                            <a asp-action="Index" asp-controller="ForumMessages" asp-route-topicId="@topic.Id" style="font-size: 1.3em">@topic.Name</a><br />
+                            @topic.ApplicationUser.UserName, @topic.Created
+                        </td>
+                        <td style="width: 100px">
+                             @if (User.Identity.IsAuthenticated) {<p>
+                            @topic.ForumMessages.Count Posts   <a asp-action="Edit" asp-route-id="@topic.Id">Edit</a>
+                             </p>}
+                        </td>
+                        <td style="width: 220px">
+                            @topic.ApplicationUser<br />
+                            @topic.Created
+                        </td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+

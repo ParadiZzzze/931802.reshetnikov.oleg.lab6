@@ -1,0 +1,39 @@
+@model IEnumerable<WebApplication8.Models.Post>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Posts</h1>
+
+<div class="blog-posts">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="blog-posts-actions">
+            <a asp-action="Create" asp-controller="Posts" class="btn btn-default">Create New</a>
+        </div>
+    }
+    <div class="blog-posts-items">
+        @foreach (var item in Model.OrderByDescending(x => x.Created))
+        {
+            <div class="blog-post panel panel-default">
+                <div class="panel-heading">
+                    <h3>
+                        <a asp-action="Details" asp-controller="Posts" asp-route-id="@item.Id">@item.Title</a>
+                    </h3>
+                    <div>@item.Creator.UserName | @item.Category.Name | @item.Created</div>
+                </div>
+                <div class="panel-body">
+                    <div class="blog-post-text">@item.Text</div>
+                    <div class="blog-post-actions">
+                        <a asp-action="Details" asp-controller="Posts" asp-route-id="@item.Id" class="btn btn-default">Read More</a>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="blog-post-additional">
+                        @item.Comments.Count comment(s), @item.Attachments.Count attachment(s)
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

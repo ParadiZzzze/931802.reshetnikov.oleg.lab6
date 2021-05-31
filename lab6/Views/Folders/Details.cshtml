@@ -1,0 +1,106 @@
+﻿@model WebApplication8.Models.Folder
+
+
+
+<ol class="breadcrumb breadcrumb-top">
+    <li><a asp-action="Index"></a></li>
+    @{
+        foreach (var it in ViewBag.Path)
+        {
+            if (it.Item1 == Model.Id) { continue; }
+            <li><a asp-action="Details" asp-route-id="@it.Item1"> @it.Item2 /</a></li>
+
+        }
+    }
+    <li class="active">@Model.Name</li>
+</ol>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group" role="group">
+        <a class="btn btn-default" asp-action="Create2" asp-route-id="@Model.Id"><span class="glyphicon glyphicon-plus"></span> New folder</a>
+        <a class="btn btn-default" asp-action="Create" asp-controller="Files" asp-route-id="@Model.Id"><span class="glyphicon glyphicon-plus"></span> New file</a>
+    </div>
+    <div class="btn-group" role="group">
+        <a class="btn btn-default" asp-action="Edit" asp-route-id="@Model.Id"><span class="glyphicon glyphicon-pencil"></span> Edit folder</a>
+        <a class="btn btn-default" asp-action="Delete" asp-route-id="@Model.Id"><span class="glyphicon glyphicon-remove"></span> Delete folder</a>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-top">
+    <colgroup>
+        <col style="width: 60%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Size
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @if (ViewBag.Can == true)
+    {
+            <a asp-action="Index">
+                <span class="glyphicon glyphicon-level-up"></span>
+                ..
+            </a>}
+
+                @if (ViewBag.Can == false)
+    {
+            <a asp-action="Details" asp-route-id="@Model.FolderId">
+                <span class="glyphicon glyphicon-level-up"></span>
+                ..
+            </a>
+                }
+
+            </td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        @foreach (var folder in Model.Folders)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@folder.Id">
+                        <span class="glyphicon glyphicon-folder-open"></span>
+                        @folder.Name
+                    </a>
+                </td>
+                <td>
+                    Folder
+                </td>
+                <td>
+                    -
+                </td>
+            </tr>
+        }
+        @foreach (var file in Model.Files)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-controller="Files" asp-route-id="@file.Id">
+                        <span class="glyphicon glyphicon-file"></span>
+                        @file.Name
+                    </a>
+                </td>
+                <td>
+                    @file.GetType()
+                </td>
+                <td>
+                    @file.Size bytes
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

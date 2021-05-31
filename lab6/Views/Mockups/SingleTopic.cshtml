@@ -1,0 +1,108 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "Topic";
+}
+
+<h2>First topic</h2>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a href="#">Reply</a>
+        | <a href="#">Edit</a>
+        | <a href="#">Delete</a>
+        | <a href="#">Back to Forum 1</a>
+    </p>
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>admin@example.com, Monday, June 12, 2020 3:42:50 PM (edited Monday, June 12, 2020 3:43:15 PM)
+            | <a href="#">Edit</a>
+            | <a href="#">Delete</a>
+            | <a href="#">Attach</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="forum-message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta bibendum ante et lacinia. Sed diam massa, pulvinar sit amet commodo consectetur, tempus consequat diam. Aliquam ultrices, massa et pharetra luctus, eros libero egestas ligula, a egestas augue nulla aliquet dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec congue tellus ac odio finibus, id sagittis tellus varius. Aliquam eu consequat nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras aliquet aliquet libero, vel faucibus mauris tincidunt id. Nullam aliquam ultricies mi. Etiam nulla nunc, pharetra a orci ultricies, varius pharetra est. Nullam quis risus tortor. Nullam lobortis scelerisque lorem, quis finibus quam venenatis ut.
+            
+        Nunc fermentum gravida ligula, non condimentum nibh luctus quis. Suspendisse potenti. Sed aliquam, odio eu dapibus molestie, nisl ipsum eleifend augue, at feugiat velit eros vitae libero. Aliquam erat volutpat. Cras euismod at metus in faucibus. Donec iaculis ac justo id rhoncus. Fusce dapibus, ligula sit amet malesuada tincidunt, nulla lorem porta arcu, rutrum rutrum turpis arcu sed urna. Aliquam in mauris condimentum, tristique odio a, viverra ipsum. Cras non odio tellus. Etiam id cursus nunc. Fusce suscipit ac quam nec malesuada. Aliquam gravida sollicitudin iaculis.</div>
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="https://lorempixel.com/300/300/abstract/" target="__blank">
+                        <img src="https://lorempixel.com/300/300/abstract/" alt="Attachment" />
+                    </a>
+                </div>
+                <div class="caption">
+                    <p><a href="#" class="btn btn-sm btn-danger">Delete</a></p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="https://lorempixel.com/300/300/cats/" target="__blank">
+                        <img src="https://lorempixel.com/300/300/cats/" alt="Attachment" />
+                    </a>
+                </div>
+                <div class="caption">
+                    <p><a href="#" class="btn btn-sm btn-danger">Delete</a></p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="https://lorempixel.com/300/300/city/" target="__blank">
+                        <img src="https://lorempixel.com/300/300/city/" alt="Attachment" />
+                    </a>
+                </div>
+                <div class="caption">
+                    <p><a href="#" class="btn btn-sm btn-danger">Delete</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>
+            admin@example.com, Monday, June 12, 2020 3:42:50 PM (edited Monday, June 12, 2020 3:43:15 PM)
+            | <a href="#">Edit</a>
+            | <a href="#">Delete</a>
+            | <a href="#">Attach</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="forum-message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta bibendum ante et lacinia. Sed diam massa, pulvinar sit amet commodo consectetur, tempus consequat diam. Aliquam ultrices, massa et pharetra luctus, eros libero egestas ligula, a egestas augue nulla aliquet dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec congue tellus ac odio finibus, id sagittis tellus varius. Aliquam eu consequat nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras aliquet aliquet libero, vel faucibus mauris tincidunt id. Nullam aliquam ultricies mi. Etiam nulla nunc, pharetra a orci ultricies, varius pharetra est. Nullam quis risus tortor. Nullam lobortis scelerisque lorem, quis finibus quam venenatis ut.
+            
+            Nunc fermentum gravida ligula, non condimentum nibh luctus quis. Suspendisse potenti. Sed aliquam, odio eu dapibus molestie, nisl ipsum eleifend augue, at feugiat velit eros vitae libero. Aliquam erat volutpat. Cras euismod at metus in faucibus. Donec iaculis ac justo id rhoncus. Fusce dapibus, ligula sit amet malesuada tincidunt, nulla lorem porta arcu, rutrum rutrum turpis arcu sed urna. Aliquam in mauris condimentum, tristique odio a, viverra ipsum. Cras non odio tellus. Etiam id cursus nunc. Fusce suscipit ac quam nec malesuada. Aliquam gravida sollicitudin iaculis.</div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>
+            admin@example.com, Monday, June 12, 2020 3:42:50 PM
+            | <a href="#">Edit</a>
+            | <a href="#">Delete</a>
+            | <a href="#">Attach</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="forum-message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta bibendum ante et lacinia. Sed diam massa, pulvinar sit amet commodo consectetur, tempus consequat diam. Aliquam ultrices, massa et pharetra luctus, eros libero egestas ligula, a egestas augue nulla aliquet dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec congue tellus ac odio finibus, id sagittis tellus varius. Aliquam eu consequat nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras aliquet aliquet libero, vel faucibus mauris tincidunt id. Nullam aliquam ultricies mi. Etiam nulla nunc, pharetra a orci ultricies, varius pharetra est. Nullam quis risus tortor. Nullam lobortis scelerisque lorem, quis finibus quam venenatis ut.
+
+            Nunc fermentum gravida ligula, non condimentum nibh luctus quis. Suspendisse potenti. Sed aliquam, odio eu dapibus molestie, nisl ipsum eleifend augue, at feugiat velit eros vitae libero. Aliquam erat volutpat. Cras euismod at metus in faucibus. Donec iaculis ac justo id rhoncus. Fusce dapibus, ligula sit amet malesuada tincidunt, nulla lorem porta arcu, rutrum rutrum turpis arcu sed urna. Aliquam in mauris condimentum, tristique odio a, viverra ipsum. Cras non odio tellus. Etiam id cursus nunc. Fusce suscipit ac quam nec malesuada. Aliquam gravida sollicitudin iaculis.</div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>
+            admin@example.com, Monday, June 12, 2020 3:42:50 PM
+            | <a href="#">Edit</a>
+            | <a href="#">Delete</a>
+            | <a href="#">Attach</a>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="forum-message-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porta bibendum ante et lacinia. Sed diam massa, pulvinar sit amet commodo consectetur, tempus consequat diam. Aliquam ultrices, massa et pharetra luctus, eros libero egestas ligula, a egestas augue nulla aliquet dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec congue tellus ac odio finibus, id sagittis tellus varius. Aliquam eu consequat nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cras aliquet aliquet libero, vel faucibus mauris tincidunt id. Nullam aliquam ultricies mi. Etiam nulla nunc, pharetra a orci ultricies, varius pharetra est. Nullam quis risus tortor. Nullam lobortis scelerisque lorem, quis finibus quam venenatis ut.
+
+            Nunc fermentum gravida ligula, non condimentum nibh luctus quis. Suspendisse potenti. Sed aliquam, odio eu dapibus molestie, nisl ipsum eleifend augue, at feugiat velit eros vitae libero. Aliquam erat volutpat. Cras euismod at metus in faucibus. Donec iaculis ac justo id rhoncus. Fusce dapibus, ligula sit amet malesuada tincidunt, nulla lorem porta arcu, rutrum rutrum turpis arcu sed urna. Aliquam in mauris condimentum, tristique odio a, viverra ipsum. Cras non odio tellus. Etiam id cursus nunc. Fusce suscipit ac quam nec malesuada. Aliquam gravida sollicitudin iaculis.</div>
+    </div>
+</div>

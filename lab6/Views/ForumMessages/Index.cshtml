@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication8.Models.ForumMessage>
+
+<h2>First topic</h2>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a asp-action="Create" asp-controller="ForumMessages" asp-route-topicId="@ViewBag.Topic.Id">Reply</a>
+        @*| <a asp-action="Edit" asp-controller="ForumMessages" asp-route-topicId="@ViewBag.Topic.Id">Edit</a>*@
+        @*| <a asp-action="Delete" asp-controller="ForumMessages" asp-route-topicId="@ViewBag.Topic.Id">Delete</a>*@
+        | <a asp-action="Back" asp-controller="ForumMessages" asp-route-id="@ViewBag.Topic.Id">Back to Forum 1</a>
+    </p>
+}
+    @foreach (var message in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div>
+                    By person in @message.Created
+                    | <a href="#">Edit</a>
+                    | <a href="#">Delete</a>
+                    | <a asp-action="Create" asp-controller="ForumMessageAttachments" asp-route-Id="@message.Id">Attach</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="forum-message-text">
+                    @message.Text
+                </div>
+                <div class="row">
+                        @foreach (var Item in message.ForumMessageAttachments)
+                        {
+                            <div class="col-sm-6 col-md-4">
+                                <div class="thumbnail">
+                                    <a href="@Item.FilePath" target="__blank">
+                                        <img src="@Item.FilePath" alt="Attachment" />
+                                    </a>
+                                </div>
+                                <div class="caption">
+                                    <p><a asp-controller="ForumAttachmentsController" asp-action="Delete" asp-route-id="Item.Id" class="btn btn-sm btn-danger">Delete</a></p>
+                                </div>
+                            </div>
+                        }
+                </div>
+            </div>
+        </div>
+    }

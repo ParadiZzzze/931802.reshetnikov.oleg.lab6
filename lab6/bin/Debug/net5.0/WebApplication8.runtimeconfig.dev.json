@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\zhoom\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\zhoom\\.nuget\\packages"
+    ]
+  }
+}

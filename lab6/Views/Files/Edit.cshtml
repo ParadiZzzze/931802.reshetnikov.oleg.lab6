@@ -1,0 +1,28 @@
+﻿@model WebApplication8.Models.FileViewModel
+
+@{
+    ViewBag.Title = "Edit folder";
+}
+
+<ol class="breadcrumb breadcrumb-top">
+    <li><a href="#">Root</a></li>
+    <li><a href="#">Folder 1</a></li>
+    <li class="active">Edit</li>
+</ol>
+
+<h2>Edit Folder 1</h2>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-route-id="@ViewBag.Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Name</label>
+                <input asp-for="Name" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a class="btn btn-default" href="#">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

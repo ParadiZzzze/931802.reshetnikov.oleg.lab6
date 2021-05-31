@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication8.Models.ForumCategory>
+@{
+    ViewBag.Title = "Forum";
+}
+
+<h2>Forum</h2>
+@foreach (var category in Model)
+{
+<div class="panel panel-default forum-category">
+    <div class="panel-heading">
+        <strong>Category @category.Name</strong>
+        @if (User.Identity.IsAuthenticated) {
+            if (ViewBag.Can == true)
+            {
+            <p>
+        |<a asp-action="Edit" asp-route-id="@category.Id" asp-controller="ForumCategorys">Edit</a>
+        | <a asp-action="Delete" asp-route-id="@category.Id" asp-controller="ForumCategorys">Delete</a>
+        | <a asp-action="Create" asp-route-id="@category.Id" asp-controller="ForumCategorys">Create forum</a>
+                </p>}
+        }
+    </div>
+    <table class="table table-striped">
+        <tbody>
+            @foreach (var forum in category.Forums)
+            {
+        <tr>
+            <td>
+                <a asp-action="Index" asp-route-forumId="@forum.Id" asp-controller="ForumTopics" class="forum-name">@forum.Name</a>
+                @if (ViewBag.Can == true) {
+                    <p>
+                |<a asp-action="Edit" asp-route-id="@forum.Id" asp-controller="Forums">Edit</a>
+                | <a asp-action="Delete" asp-route-id="@forum.Id" asp-controller="Forums">Delete</a>
+                </p>}
+                <p>@forum.Description</p>
+            </td> @{ var c = forum.ForumTopics.Count;}
+            <td style="width: 150px"> @c topics</td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <a asp-action="Create" asp-controller="ForumCategorys">Create new category</a>
+    </div>
+</div>

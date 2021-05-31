@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApplication8.Models.Folder>
+
+@{
+    ViewBag.Title = "Root";
+}
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<ol class="breadcrumb breadcrumb-top">
+    <li class="active">Root</li>
+</ol>
+
+<div class="btn-toolbar" role="toolbar">
+    <div class="btn-group" role="group">
+        <a class="btn btn-default" asp-action="Create"><span class="glyphicon glyphicon-plus"></span> New folder</a>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-top">
+    <colgroup>
+        <col style="width: 60%" />
+        <col style="width: 20%" />
+        <col style="width: 20%" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Size
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach(var folder in Model){
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@folder.Id">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    @folder.Name
+                </a>
+            </td>
+            <td>
+                Folder
+            </td>
+            <td>
+                -
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

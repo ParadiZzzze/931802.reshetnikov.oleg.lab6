@@ -1,0 +1,20 @@
+﻿@model WebApplication8.Models.Folder
+
+@{
+    ViewBag.Title = "Delete folder";
+}
+
+<ol class="breadcrumb breadcrumb-top">
+    <li><a asp-action="Index">Root</a></li>
+    <li><a href="#">Folder 1</a></li>
+    <li class="active">Delete</li>
+</ol>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h2>Delete @Model.Name</h2>
+<div>
+    <form asp-action="Delete" asp-route-id="@Model.Id">
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a class="btn btn-default" asp-action="Details" asp-route-id="@Model.Id">Cancel</a>
+    </form>
+</div>
+
